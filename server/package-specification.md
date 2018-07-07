@@ -8,13 +8,14 @@ Each package is identified by it's name and can have multiple versions. The late
 ## Description
 This is the description of each field
 
-| Field         	| Description                                                                	| Type       	| Required 	| Constraint                                                  	|
-|---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
-| `name`        	| Name of the package                                                        	| `String`   	| ✔️        	| Max length 25                                               	|
-| `description` 	| Description of the package                                                 	| `String`   	| ✔️        	| Max length 200                                              	|
-| `alias`       	| Names used to identify this package. They have to be different from `name` 	| `String[]` 	| ❌        	| Max elements 5. For each element, same constraint as `name` 	|
-| `website`     	| Official website of the package                                            	| `String`   	| ✔️        	| Well formed URL                                             	|
-| `authors`     	| List of package authors                                                    	| `Author[]` 	| ✔️        	| See [Author](#author)                                       	|
+| Field         	| Description                                                                	| Type        	| Required 	| Constraint                                                  	|
+|---------------	|----------------------------------------------------------------------------	|-------------	|----------	|-------------------------------------------------------------	|
+| `name`        	| Name of the package                                                        	| `String`    	| ✔️        	| Max length 25                                               	|
+| `description` 	| Description of the package                                                 	| `String`    	| ✔️        	| Max length 200                                              	|
+| `alias`       	| Names used to identify this package. They have to be different from `name` 	| `String[]`  	| ❌        	| Max elements 5. For each element, same constraint as `name` 	|
+| `website`     	| Official website of the package                                            	| `String`    	| ✔️        	| Well formed URL                                             	|
+| `authors`     	| List of package authors                                                    	| `Author[]`  	| ✔️        	| See [Author](#author)                                       	|
+| `versions`    	| List of available versions for the package                                 	| `Version[]` 	| ✔️        	| See [Version](#version)                                     	|
 
 ### Author
 Author detail info:
@@ -23,6 +24,16 @@ Author detail info:
 |---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
 | `name`        	| Author name                                                        	| `String`   	| ✔️        	| Max length 50                                               	|
 | `contact`        	| Author contact email                                                       	| `String`   	| ✔️        	| Well formed email                                              	|
+
+### Version
+Version details:
+
+| Field         	| Description                                                                	| Type       	| Required 	| Constraint                                                  	|
+|---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
+| `name`        	| Version name                                                        	| `String`   	| ✔️        	| Max length 25                                               	|
+| `url`        	| Version url                                                       	| `String`   	| ✔️        	| Well formed URL                                              	|
+| `checksum`        	| Checksum of the downloadable resource                             | `String`   	| ❌        	|                                               	|
+| `os`        	| Supported operating system version                             | `String`   	| ✔️        	| Can be `win`, `mac`, `ubuntu`                                              	|
 
 
 ## Example
@@ -39,6 +50,20 @@ Author detail info:
       {
          "name":"Javi",
          "contact":"hi@ypack.com"
+      }
+   ],
+   "versions":[
+      {
+         "name":"1.0.0",
+         "url":"https://github.com/ypack/releases/download/1.0.0/ypack-win.zip",
+         "checksum":"85cc828a96735bdafcf29eb6291ca91bac846579bcef7308536e0c875d6c81d7",
+         "os":"win"
+      },
+      {
+         "name":"1.0.0",
+         "url":"https://github.com/ypack/releases/download/1.0.0/ypack-ubuntu.tar.gz",
+         "checksum":"",
+         "os":"ubuntu"
       }
    ]
 }
