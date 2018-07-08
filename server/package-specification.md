@@ -28,12 +28,13 @@ Author detail info:
 ### Version
 Version details:
 
-| Field         	| Description                                                                	| Type       	| Required 	| Constraint                                                  	|
-|---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
-| `name`        	| Version name                                                        	| `String`   	| ✔️        	| Max length 25                                               	|
-| `url`        	| Version url                                                       	| `String`   	| ✔️        	| Well formed URL                                              	|
-| `checksum`        	| Checksum of the downloadable resource                             | `String`   	| ❌        	|                                               	|
-| `os`        	| Supported operating system version                             | `String`   	| ✔️        	| Can be `win`, `mac`, `ubuntu`                                              	|
+| Field      	| Description                           	| Type     	| Required 	| Constraint                                 	|
+|------------	|---------------------------------------	|----------	|----------	|--------------------------------------------	|
+| `name`     	| Version name                          	| `String` 	| ✔️        	| Max length 25                              	|
+| `url`      	| Version url                           	| `String` 	| ✔️        	| Well formed URL                            	|
+| `checksum` 	| Checksum of the downloadable resource 	| `String` 	| ❌        	|                                            	|
+| `os`       	| Supported operating system version    	| `String` 	| ✔️        	| Can be `win`, `mac`, `ubuntu`              	|
+| `arch`     	| Package architecture                  	| `String` 	| ✔️        	| Can be `x86-64`, `x86`, `ARMv6` or `ARMv8` 	|
 
 
 ## Example
@@ -57,13 +58,15 @@ Version details:
          "name":"1.0.0",
          "url":"https://github.com/ypack/releases/download/1.0.0/ypack-win.zip",
          "checksum":"85cc828a96735bdafcf29eb6291ca91bac846579bcef7308536e0c875d6c81d7",
-         "os":"win"
+         "os":"win",
+         "arch":"x86-64"
       },
       {
          "name":"1.0.0",
          "url":"https://github.com/ypack/releases/download/1.0.0/ypack-ubuntu.tar.gz",
          "checksum":"",
-         "os":"ubuntu"
+         "os":"ubuntu",
+         "arch":"x86"
       }
    ]
 }
