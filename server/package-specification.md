@@ -12,8 +12,8 @@ This is the description of each field
 |---------------	|----------------------------------------------------------------------------	|-------------	|----------	|-------------------------------------------------------------	|
 | `name`        	| Name of the package                                                        	| `String`    	| ✔️        	| Max length 25                                               	|
 | `description` 	| Description of the package                                                 	| `String`    	| ✔️        	| Max length 200                                              	|
-| `alias`       	| Names used to identify this package. They have to be different from `name` 	| `String[]`  	| ❌        	| Max elements 5. For each element, same constraint as `name` 	|
 | `website`     	| Official website of the package                                            	| `String`    	| ✔️        	| Well formed URL                                             	|
+| `alias`       	| Names used to identify this package. They have to be different from `name` 	| `Alias[]`  	| ❌        	| Max elements 5. For each element, same constraint as `name` 	|
 | `authors`     	| List of package authors                                                    	| `Author[]`  	| ✔️        	| See [Author](#author)                                       	|
 | `versions`    	| List of available versions for the package                                 	| `Version[]` 	| ✔️        	| See [Version](#version)                                     	|
 
@@ -36,6 +36,12 @@ Version details:
 | `os`       	| Supported operating system version    	| `String` 	| ✔️        	| Can be `win`, `mac`, `ubuntu`              	|
 | `arch`     	| Package architecture                  	| `String` 	| ✔️        	| Can be `x86-64`, `x86`, `ARMv6` or `ARMv8` 	|
 
+### Alias
+Alias detail info:
+
+| Field         	| Description                                                                	| Type       	| Required 	| Constraint                                                  	|
+|---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
+| `name`        	| Alias name                                                        	| `String`   	| ✔️        	| Max length 50                                               	|
 
 ## Example
 
@@ -44,7 +50,9 @@ Version details:
    "name":"ypack",
    "description":"Multi-platforma package manager",
    "alias":[
-      "yp"
+      {
+         "name":"yp"
+      }
    ],
    "website":"https://github.com/ypack",
    "authors":[
