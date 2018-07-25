@@ -41,7 +41,7 @@ Alias detail info:
 
 | Field         	| Description                                                                	| Type       	| Required 	| Constraint                                                  	|
 |---------------	|----------------------------------------------------------------------------	|------------	|----------	|-------------------------------------------------------------	|
-| `name`        	| Alias name                                                        	| `String`   	| ✔️        	| Max length 50                                               	|
+| `name`        	| Alias name                                                        	| `String`   	| ✔️        	| Max length 25                                               	|
 
 ## Example
 
